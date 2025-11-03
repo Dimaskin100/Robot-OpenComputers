@@ -1,4 +1,4 @@
--- wget -f https://pastebin.com/raw/UWGeEjHa r
+-- wget -f https://raw.githubusercontent.com/Dimaskin100/Robot-OpenComputers/refs/heads/main/R.lua r
  
 print("Запуск")
  
@@ -234,4 +234,5 @@ end
     start1()
     end
     
+
     Port()
