@@ -1,4 +1,4 @@
--- wget -f https://pastebin.com/raw/yBb4MyBV r
+-- wget -f https://raw.githubusercontent.com/Dimaskin100/Robot-OpenComputers/refs/heads/main/RT.lua r
  
 print("Запуск")
 
@@ -192,4 +192,5 @@ if try5 == "1" then
     proverka()
     end
  
+
 Port()
