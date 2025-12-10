@@ -60,7 +60,6 @@ answer = false
 
 end
 rednet.send(ctl, answer)
-end
 return 0
 end
 
