@@ -1,0 +1,67 @@
+local ctl = nil
+
+rednet.open()
+
+local function main()
+-- get message
+local snr, msg, dte = rednet.receive()
+local cmd = {}
+
+for word in string.gmatch(msg, "%a+") do table.insert(cmd, word) end
+
+sleep(0.2)
+
+-- if control don't have
+if ctl == nil then
+
+-- system commands
+if cmd[1] == "connect" then
+if ctl == nil then
+ctl = snr
+rednet.send(snr, true)
+else
+rednet.send(snr, false)
+end
+
+elseif cmd[1] == "search_robots" then rednet.send(snr, "robot") end
+end
+
+-- if control have
+else
+
+if cmd[1] == "disconnect" then if snr == ctl then ctl = nil rednet.send(snr, true) else rednet.send(snr, false) end end
+
+-- commands
+
+local answer = nil
+
+-- move
+
+if cmd[1] == "f" then
+answer = turtle.forward()
+
+elseif cmd[1] == "b" then
+answer = turtle.back()
+
+elseif cmd[1] == "l" then
+answer = turtle.turnLeft()
+
+elseif cmd[1] == "r" then
+answer = turtle.turnRight()
+
+elseif cmd[1] == "u" then
+answer = turtle.up()
+
+elseif cmd[1] == "d" then
+answer = turtle.down()
+
+else
+answer = false
+
+end
+rednet.send(ctl, answer)
+return 0
+end
+
+-- start
+while true do main() end
