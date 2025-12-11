@@ -1,6 +1,6 @@
 local ctl = nil
 
-rednet.open()
+rednet.open("right")
 
 while true do
 
@@ -60,3 +60,4 @@ while true do
         end
     end
 end
+
