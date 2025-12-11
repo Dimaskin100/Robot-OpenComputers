@@ -31,7 +31,7 @@ function robotlib.send(command)
 
     local cmd = {}
 
-    for word in string.gmatch(msg, "%S+") do
+    for word in string.gmatch(command, "%S+") do
         table.insert(cmd, word)
     end
 
@@ -70,3 +70,4 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
