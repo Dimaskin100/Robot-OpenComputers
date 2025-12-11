@@ -3,7 +3,7 @@ local robotlib = {}
 local robots = {nil}
 local cmds = {"u", "d", "r", "l", "f"}
 
-rednet.open()
+rednet.open("right")
 
 function robotlib.connect(robots1)
     for k, v in pairs(robots1) do
