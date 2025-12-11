@@ -1,3 +1,4 @@
+term.clear()
 local ctl = nil
 
 rednet.open("right")
