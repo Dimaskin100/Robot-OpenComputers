@@ -74,6 +74,12 @@ while true do
 
                 elseif cmd[1] == "dgd" then
                     answer = turtle.digDown()
+
+                elseif cmd[1] == "sel" then
+                    answer = turtle.select(cmd[2])
+
+                elseif cmd[1] == "tt" then
+                    answer = turtle.transferTo(cmd[2])
                     
                 else
                     answer = false
@@ -87,6 +93,7 @@ while true do
         end
     end
 end
+
 
 
 
