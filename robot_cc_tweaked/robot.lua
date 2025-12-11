@@ -1,4 +1,6 @@
 term.clear()
+print("ID: "..os.computerID)
+
 local ctl = nil
 
 rednet.open("right")
@@ -61,4 +63,5 @@ while true do
         end
     end
 end
+
 
