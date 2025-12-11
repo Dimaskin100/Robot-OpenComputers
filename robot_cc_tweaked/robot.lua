@@ -1,5 +1,5 @@
 term.clear()
-print("ID: "..os.computerID)
+print("ID: "..os.computerID())
 
 local ctl = nil
 
@@ -63,5 +63,6 @@ while true do
         end
     end
 end
+
 
 
