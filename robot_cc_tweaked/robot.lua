@@ -41,16 +41,40 @@ while true do
 
                 if cmd[1] == "f" then
                     answer = turtle.forward()
+                    
                 elseif cmd[1] == "b" then
                     answer = turtle.back()
+                    
                 elseif cmd[1] == "l" then
                     answer = turtle.turnLeft()
+                    
                 elseif cmd[1] == "r" then
                     answer = turtle.turnRight()
+                    
                 elseif cmd[1] == "u" then
                     answer = turtle.up()
+                    
                 elseif cmd[1] == "d" then
                     answer = turtle.down()
+
+                elseif cmd[1] == "a" then
+                    answer = turtle.attack()
+
+                elseif cmd[1] == "au" then
+                    answer = turtle.attackUp()
+
+                elseif cmd[1] == "ad" then
+                    answer = turtle.attackDown()
+
+                elseif cmd[1] == "dg" then
+                    answer = turtle.dig()
+
+                elseif cmd[1] == "dgu" then
+                    answer = turtle.digUp()
+
+                elseif cmd[1] == "dgd" then
+                    answer = turtle.digDown()
+                    
                 else
                     answer = false
                 end
@@ -63,6 +87,7 @@ while true do
         end
     end
 end
+
 
 
 
