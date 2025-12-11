@@ -1,7 +1,7 @@
 local robotlib = {}
 
 local robots = {nil}
-local cmds = {"u", "d", "r", "l", "f"}
+local cmds = {"f", "l", "r", "u", "d"}
 
 rednet.open("right")
 
@@ -70,4 +70,5 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
