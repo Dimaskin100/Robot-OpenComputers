@@ -1,3 +1,5 @@
+local r = require("robotlib")
+
 term.clear()
 
 print("Write ID robots")
@@ -44,5 +46,6 @@ end
 for i = 1, v do
 r.send("dgu") r.send("u")
 end
+
 
 r.disconnect()
