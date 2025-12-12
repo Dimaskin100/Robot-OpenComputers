@@ -20,12 +20,22 @@ function robotlib.connect(robots1)
     local answers = {}
     for k, v in pairs(robots1) do
         rednet.send(v, "connect")
+
+        while true do
         local snr, msg = rednet.receive()
+        if snr == v then
+                table.insert(answers, snr)
         table.insert(answers, msg)
-        if msg == true then
-            table.insert(robots, v)
+
+                if msg == true then
+                    table.insert(robots, snr)
+                end
+                
+            break
+        end
         end
     end
+    
     return answers
 end
 
@@ -54,11 +64,17 @@ function robotlib.send(command)
     local answers = {}
     for k, v in pairs(robots) do
         rednet.send(v, command)
-    end
-    for k, v in pairs(robots) do
+
+        while true do
         local snr, msg = rednet.receive()
+        if snr == v then
+                table.insert(answers, snr)
         table.insert(answers, msg)
+            break
+        end
+        end
     end
+    
     return answers
 end
 
@@ -75,6 +91,7 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
 
 
