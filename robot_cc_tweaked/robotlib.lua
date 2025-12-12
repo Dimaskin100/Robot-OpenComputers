@@ -111,7 +111,6 @@ local snr, msg = rednet.receive()
         
 if snr == ID then
 return msg
-            break
         end
     end
 end
@@ -129,6 +128,7 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
 
 
