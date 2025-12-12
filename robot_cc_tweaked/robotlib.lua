@@ -78,6 +78,44 @@ function robotlib.send(command)
     return answers
 end
 
+function robotlib.searchRobots(number)
+    local answers = {}
+    
+for i = 0, number do
+rednet.send(i, "searchRobots")
+
+        while true do
+local snr, msg = rednet.receive(0.3)
+        
+        if not snr == nil then
+                if snr == i then
+if msg == "robot" then
+table.insert(answers, snr)
+            end
+                    break
+        end
+            end  
+    end
+    end
+
+    if answers[1] == nil then return false end
+
+    return answers
+end
+
+function robotlib.isHaveControl(ID)
+rednet.send(ID, "isHaveControl")
+
+    while true do
+local snr, msg = rednet.receive()
+        
+if snr == ID then
+return msg
+            break
+        end
+    end
+end
+
 function robotlib.disconnect()
     if robots[1] == nil then
         return false
@@ -91,6 +129,7 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
 
 
