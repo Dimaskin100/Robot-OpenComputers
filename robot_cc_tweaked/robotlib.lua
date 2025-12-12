@@ -115,7 +115,6 @@ return msg
         end
     end
 end
-end
 
 function robotlib.disconnect()
     if robots[1] == nil then
@@ -130,6 +129,7 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
 
 
