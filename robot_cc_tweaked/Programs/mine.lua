@@ -26,8 +26,13 @@ sleep(2) os.reboot()
 end
 end
 
-local d = io.read("Dlina: ")
-local v = io.read("Visota: ")
+print("Dlina")
+local d = io.read()
+print("")
+print("Visota")
+local v = io.read()
+
+term.clear()
 
 for i = 1, v do
 r.send("dgd") r.send("d")
@@ -49,3 +54,4 @@ end
 
 
 r.disconnect()
+
