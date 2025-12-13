@@ -20,7 +20,7 @@ function robotlib.connect(robots1)
     local answers = {}
     for k, v in pairs(robots1) do
         rednet.send(v, "connect")
-        local snr, msg = rednet.receive(5)
+        local snr, msg = rednet.receive(2)
         if snr and snr == v then
             table.insert(answers, {id = snr, message = msg})
             if msg == true then
@@ -51,7 +51,7 @@ function robotlib.send(command)
     local answers = {}
     for k, v in pairs(robots) do
         rednet.send(v, command)
-        local snr, msg = rednet.receive(5)
+        local snr, msg = rednet.receive(2)
         if snr and snr == v then
             table.insert(answers, {id = snr, message = msg})
         else
@@ -80,7 +80,7 @@ end
 
 function robotlib.isHaveControl(ID)
     rednet.send(ID, "isHaveControl")
-    local snr, msg = rednet.receive(5)
+    local snr, msg = rednet.receive(2)
     if snr == ID then
         return msg
     else
@@ -101,3 +101,4 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
