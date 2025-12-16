@@ -22,12 +22,12 @@ function robotlib.connect(robots1)
         rednet.send(v, "connect")
         local snr, msg = rednet.receive(2)
         if snr and snr == v then
-            table.insert(answers, {id = snr, message = msg})
+            table.insert(answers, {id = snr, msg = msg, dte = dte})
             if msg == true then
                 table.insert(robots, snr)
             end
         else
-            return false
+            table.insert(answers, {id = v, msg = false})
         end
     end
     
@@ -53,39 +53,35 @@ function robotlib.send(command)
         rednet.send(v, command)
         local snr, msg = rednet.receive(2)
         if snr and snr == v then
-            table.insert(answers, {id = snr, message = msg})
+            table.insert(answers, {id = snr, msg = msg, dte = dte})
         else
-            return false
+            table.insert(ansswers, {id = v, msg = false})
         end
     end
     
     return answers
 end
 
-function robotlib.searchRobots(number)
+function robotlib.searchRobot(robots1)
     local answers = {}
     
-    for i = 0, number do
-        rednet.send(i, "searchRobots")
-        local snr, msg = rednet.receive(0.3)
-        
-        if snr and snr == i and msg == "robot" then
-            table.insert(answers, snr)
+end
+
+function robotlib.isHaveControl(robots1)
+local answers = {}
+    
+for k, v in pairs(robots1) do
+rednet.send(v, "isHaveControl")
+        local snr, msg, dte = rednet.receive(0.3)
+
+        if snr == v then
+table.insert(answers, {id = snr, msg =  msg, dte = dte})
+        else
+            table.insert({id = v, msg = false})
         end
     end
 
-    if #answers == 0 then return false end
     return answers
-end
-
-function robotlib.isHaveControl(ID)
-    rednet.send(ID, "isHaveControl")
-    local snr, msg = rednet.receive(2)
-    if snr == ID then
-        return msg
-    else
-        return false
-    end
 end
 
 function robotlib.disconnect()
@@ -101,4 +97,5 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
