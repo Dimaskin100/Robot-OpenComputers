@@ -84,11 +84,56 @@ while true do
                 elseif cmd[1] == "dgd" then
                     answer = turtle.digDown()
 
+                elseif cmd[1] == "p" then
+                    answer = turtle.place()
+
+                elseif cmd[1] == "pu" then
+                    answer = turtle.placeUp()
+
+                elseif cmd[1] == "pd" then
+                    answer = turtle.placeDown()
+
+                elseif cmd[1] == "sk" then
+                    answer = turtle.suck()
+
+                elseif cmd[1] == "sku" then
+                    answer = turtle.suckUp()
+
+                elseif cmd[1] == "skd" then
+                    answer = turtle.suckDown()
+
+                elseif cmd[1] == "er" then
+                    answer = turtle.equipRight()
+
+                elseif cmd[1] == "el" then
+                    answer = turtle.equipLeft()
+
+                elseif cmd[1] == "dr" then
+                    answer = turtle.drop()
+
+                elseif cmd[1] == "dru" then
+                    answer = turtle.dropUp()
+
+                elseif cmd[1] == "drd" then
+                    answer = turtle.dropDown()
+
+                elseif cmd[1] == "dt" then
+                    answer = turtle.detect()
+
+                elseif cmd[1] == "dtu" then
+                    answer = turtle.detectUp()
+
+                elseif cmd[1] == "dtd" then
+                    answer = turtle.detectDown()
+
                 elseif cmd[1] == "sel" then
                     answer = turtle.select(tonumber(cmd[2]))
 
                 elseif cmd[1] == "tt" then
                     answer = turtle.transferTo(tonumber(cmd[2]))
+
+                elseif cmd[1] == "rfl" then
+                    answer = turtle.refuel(tonumber(cmd[2]))
                     
                 else
                     answer = false
@@ -102,5 +147,6 @@ while true do
         end
     end
 end
+
 
 
