@@ -64,7 +64,19 @@ end
 
 function robotlib.searchRobot(robots1)
     local answers = {}
-    
+
+    for k, v in pairs(robots1) do
+rednet.send(v, "searchRobot")
+        local snr, msg, dte = rednet.receive(0.3)
+
+        if snr and snr == v and msg == "robot" then
+            table.insert(answers, {id = snr, msg = true, dte = dte})
+        else
+            table.insert(answers, {id = v, msg = false})
+        end
+    end
+
+    return answers
 end
 
 function robotlib.isHaveControl(robots1)
@@ -97,6 +109,7 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
 
 
