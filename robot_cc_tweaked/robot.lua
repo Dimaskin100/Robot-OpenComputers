@@ -26,7 +26,7 @@ while true do
                 rednet.send(snr, false)
             end
             
-        elseif cmd[1] == "searchRobots" then
+        elseif cmd[1] == "searchRobot" then
             rednet.send(snr, "robot")
 
         elseif cmd[1] == "isHaveControl" then
@@ -102,4 +102,5 @@ while true do
         end
     end
 end
+
 
