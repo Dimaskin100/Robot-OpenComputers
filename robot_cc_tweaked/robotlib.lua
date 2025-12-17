@@ -55,7 +55,7 @@ function robotlib.send(command)
         if snr and snr == v then
             table.insert(answers, {id = snr, msg = msg, dte = dte})
         else
-            table.insert(ansswers, {id = v, msg = false})
+            table.insert(answers, {id = v, msg = false})
         end
     end
     
@@ -77,7 +77,7 @@ rednet.send(v, "isHaveControl")
         if snr == v then
 table.insert(answers, {id = snr, msg =  msg, dte = dte})
         else
-            table.insert({id = v, msg = false})
+            table.insert(answers, {id = v, msg = false})
         end
     end
 
@@ -97,5 +97,6 @@ function robotlib.disconnect()
 end
 
 return robotlib
+
 
 
